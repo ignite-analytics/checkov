@@ -18,7 +18,7 @@ resource "google_cloudfunctions_function" "fail" {
   }
 }
 
-resource "google_cloudfunctions2_function" "fail2" {
+resource "google_cloudfunctions2_function" "fail" {
   name     = "function-test"
   location = "us-central1"
 
@@ -60,7 +60,7 @@ resource "google_cloudfunctions_function" "pass" {
   entry_point                  = "helloGET"
 }
 
-resource "google_cloudfunctions2_function" "pass2" {
+resource "google_cloudfunctions2_function" "pass" {
   name     = "function-test"
   location = "us-central1"
 

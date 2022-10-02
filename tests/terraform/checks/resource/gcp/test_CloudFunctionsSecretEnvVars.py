@@ -2,14 +2,14 @@ import unittest
 from pathlib import Path
 
 from checkov.runner_filter import RunnerFilter
-from checkov.terraform.checks.resource.gcp.GoogleCloudfunctionsSecretEnvVars import check
+from checkov.terraform.checks.resource.gcp.CloudFunctionsSecretEnvVars import check
 from checkov.terraform.runner import Runner
 
 
-class TestGoogleCloudfunctionsSecretEnvVars(unittest.TestCase):
+class TestCloudFunctionsSecretEnvVars(unittest.TestCase):
     def test(self):
         # given
-        test_files_dir = Path(__file__).parent / "example_GoogleCloudfunctionsSecretEnvVars"
+        test_files_dir = Path(__file__).parent / "example_CloudFunctionsSecretEnvVars"
 
         # when
         report = Runner().run(root_folder=str(test_files_dir), runner_filter=RunnerFilter(checks=[check.id]))
@@ -18,13 +18,13 @@ class TestGoogleCloudfunctionsSecretEnvVars(unittest.TestCase):
         summary = report.get_summary()
 
         passing_resources = {
-            "google_sql_database_instance.pass",
-            "google_sql_database_instance.pass2",
+            "google_cloudfunctions_function.pass",
+            "google_cloudfunctions2_function.pass",
         }
 
         failing_resources = {
-            "google_sql_database_instance.fail",
-            "google_sql_database_instance.fail2",
+            "google_cloudfunctions_function.fail",
+            "google_cloudfunctions2_function.fail",
         }
 
         passed_check_resources = {c.resource for c in report.passed_checks}
