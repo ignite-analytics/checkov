@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from typing import Any
+from typing import List, Any
 
-from checkov.common.models.enums import CheckResult, CheckCategories
+from checkov.common.models.enums import CheckCategories
 from checkov.common.models.consts import ANY_VALUE
 from checkov.terraform.checks.resource.base_resource_negative_value_check import BaseResourceNegativeValueCheck
 
